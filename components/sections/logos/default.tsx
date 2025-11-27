@@ -1,15 +1,23 @@
-import { ReactNode } from "react";
+"use client";
 
-import { siteConfig } from "@/config/site";
+import { ReactNode } from "react";
 
 import Figma from "../../logos/figma";
 import React from "../../logos/react";
 import ShadcnUi from "../../logos/shadcn-ui";
 import Tailwind from "../../logos/tailwind";
 import TypeScript from "../../logos/typescript";
-import { Badge } from "../../ui/badge";
 import Logo from "../../ui/logo";
 import { Section } from "../../ui/section";
+
+// Adiciona importação dos componentes de item e ícones
+import { Item, ItemDescription, ItemIcon, ItemTitle } from "../../ui/item";
+import {
+  ShieldCheckIcon,
+  LockIcon,
+  CheckCircle2Icon,
+  UserCheckIcon,
+} from "lucide-react";
 
 interface LogosProps {
   title?: string;
@@ -19,12 +27,7 @@ interface LogosProps {
 }
 
 export default function Logos({
-  title = "Built with industry-standard tools and best practices",
-  badge = (
-    <Badge variant="outline" className="border-brand/30 text-brand">
-      Última atualização: {siteConfig.stats.updated}
-    </Badge>
-  ),
+  title = "Profissionais e instituições que confiam no Notly",
   logos = [
     <Logo key="figma" image={Figma} name="Figma" />,
     <Logo key="react" image={React} name="React" version="19.2.0" />,
@@ -45,16 +48,72 @@ export default function Logos({
   ],
   className,
 }: LogosProps) {
+  // Array de itens de conformidade/segurança
+  const items = [
+    {
+      icon: <ShieldCheckIcon />,
+      title: "LGPD",
+      description: "Conformidade Total",
+    },
+    {
+      icon: <LockIcon />,
+      title: "SSL 256-bit",
+      description: "Criptografia Máxima",
+    },
+    {
+      icon: <CheckCircle2Icon />,
+      title: "ISO 27001",
+      description: "Segurança Certificada",
+    },
+    {
+      icon: <UserCheckIcon />,
+      title: "CFM Aprovado",
+      description: "Padrão Médico",
+    },
+  ];
+
   return (
     <Section className={className}>
       <div className="max-w-container mx-auto flex flex-col items-center gap-8 text-center">
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+          {items.map((item, index) => (
+            <Item key={index}>
+              <ItemTitle className="flex items-center gap-2">
+                <ItemIcon>{item.icon}</ItemIcon>
+                {item.title}
+              </ItemTitle>
+              <ItemDescription>{item.description}</ItemDescription>
+            </Item>
+          ))}
+        </div>
         <div className="flex flex-col items-center gap-6">
-          {badge !== false && badge}
           <h2 className="text-md font-semibold sm:text-2xl">{title}</h2>
         </div>
         {logos !== false && logos.length > 0 && (
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {logos}
+          <div className="relative w-full flex justify-center py-2">
+            <div className="w-full max-w-xl overflow-hidden">
+              <div
+                className="flex gap-8 animate-marquee whitespace-nowrap"
+                style={{
+                  animation: "marquee 20s linear infinite",
+                }}
+              >
+                {logos}
+              </div>
+            </div>
+            <style jsx>{`
+              @keyframes marquee {
+                0% {
+                  transform: translateX(0%);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              .animate-marquee {
+                will-change: transform;
+              }
+            `}</style>
           </div>
         )}
       </div>

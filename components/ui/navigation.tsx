@@ -45,11 +45,11 @@ interface NavigationProps {
 
 export default function Navigation({
   menuItems = [
-    { title: "Início", href: siteConfig.url },
-    { title: "Empresas", href: siteConfig.url + "/empresas" },
-    { title: "Funcionalidades", href: siteConfig.url + "/funcionalidades" },
-    { title: "Perguntas", href: siteConfig.url + "/perguntas" },
-    { title: "Contato", href: siteConfig.url + "/contato" },
+    { title: "Início", href: "#inicio" },
+    { title: "Empresas", href: "#empresas" },
+    { title: "Funcionalidades", href: "#funcionalidades" },
+    { title: "Perguntas", href: "#perguntas" },
+    { title: "Contato", href: "#footer" },
   ],
   components = [
     {
@@ -111,6 +111,17 @@ export default function Navigation({
     },
   ],
 }: NavigationProps) {
+  // Função para scroll suave
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.getElementById(href.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <NavigationMenu className="hidden md:flex w-full justify-center">
       <NavigationMenuList className="flex gap-2">
@@ -120,7 +131,13 @@ export default function Navigation({
               className={navigationMenuTriggerStyle()}
               asChild
             >
-              <Link href={item.href}>{item.title}</Link>
+              <Link
+                href={item.href}
+                onClick={e => handleSmoothScroll(e, item.href)}
+                scroll={false}
+              >
+                {item.title}
+              </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

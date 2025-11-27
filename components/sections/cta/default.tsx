@@ -18,16 +18,18 @@ interface CTAButtonProps {
 
 interface CTAProps {
   title?: string;
+  description?: string;
   buttons?: CTAButtonProps[] | false;
   className?: string;
 }
 
 export default function CTA({
-  title = "Comece a construir",
+  title = "Pare de perder R$ 3.000/mês\nem consultas desmarcadas",
+  description = "14 dias grátis. Zero riscos. Sem cartão de crédito.\nPronto em 10 minutos ou menos.",
   buttons = [
     {
       href: siteConfig.getStartedUrl,
-      text: "Cadastrar-se",
+      text: "Começar teste gratuito agora",
       variant: "default",
     },
   ],
@@ -36,9 +38,14 @@ export default function CTA({
   return (
     <Section className={cn("group relative overflow-hidden", className)}>
       <div className="max-w-container relative z-10 mx-auto flex flex-col items-center gap-6 text-center sm:gap-8">
-        <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
+        <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-4xl sm:leading-tight whitespace-pre-line">
           {title}
         </h2>
+        {description && (
+          <p className="max-w-[480px] text-lg text-muted-foreground whitespace-pre-line">
+            {description}
+          </p>
+        )}
         {buttons !== false && buttons.length > 0 && (
           <div className="flex justify-center gap-4">
             {buttons.map((button, index) => (

@@ -69,7 +69,7 @@ export default function Hero({
   buttons = [
     {
       href: siteConfig.getStartedUrl,
-      text: "Começar Teste Gratuito",
+      text: "Começar agora gratuitamente",
       variant: "default",
     },
   ],
@@ -131,5 +131,6 @@ export default function Hero({
         </div>
       </div>
     </Section>
+    
   );
 }

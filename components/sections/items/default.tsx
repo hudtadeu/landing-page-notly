@@ -1,12 +1,12 @@
 import {
-  BlocksIcon,
-  EclipseIcon,
-  FastForwardIcon,
+  ClockIcon,
   LanguagesIcon,
-  MonitorSmartphoneIcon,
-  RocketIcon,
-  ScanFaceIcon,
-  SquarePenIcon,
+  MessageCircleIcon,
+  SettingsIcon,
+  ShieldCheckIcon,
+  BarChart3Icon,
+  CheckCircle2Icon,
+  UserCheckIcon,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -26,50 +26,47 @@ interface ItemsProps {
 }
 
 export default function Items({
-  title = "Everything you need. Nothing you don't.",
+  title = "Tudo que você precisa. Sem surpresas.",
   items = [
     {
-      title: "Accessibility first",
-      description: "Fully WCAG 2.0 compliant, made with best a11y practices",
-      icon: <ScanFaceIcon className="size-5 stroke-1" />,
+      title: "Recupere 20h por mês",
+      description: "Automatize 100% das confirmações. Zero trabalho manual.",
+      icon: <ClockIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Responsive design",
-      description: "Looks and works great on any device and screen size",
-      icon: <MonitorSmartphoneIcon className="size-5 stroke-1" />,
+      title: "WhatsApp Automático",
+      description: "Envio de mensagens e respostas automáticas pelo WhatsApp.",
+      icon: <MessageCircleIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Light and dark mode",
-      description:
-        "Seamless switching between color schemes, 6 themes included",
-      icon: <EclipseIcon className="size-5 stroke-1" />,
+      title: "Configuração em 10min",
+      description: "Comece a usar rapidamente, sem complicações.",
+      icon: <SettingsIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Easy to customize",
-      description: "Flexible options to match your product or brand",
-      icon: <BlocksIcon className="size-5 stroke-1" />,
+      title: "Preço Fixo",
+      description: "Sem taxas escondidas ou cobranças extras.",
+      icon: <ShieldCheckIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Top-level performance",
-      description: "Made for lightning-fast load times and smooth interactions",
-      icon: <FastForwardIcon className="size-5 stroke-1" />,
+      title: "Analytics e Relatórios",
+      description: "Acompanhe resultados com dados e relatórios completos.",
+      icon: <BarChart3Icon className="size-5 stroke-1" />,
     },
     {
-      title: "Production ready",
-      description: "Thoroughly tested and launch-prepared",
-      icon: <RocketIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Made for localisation",
-      description:
-        "Easy to implement support for multiple languages and regions",
+      title: "Suporte em Português",
+      description: "Atendimento rápido e eficiente no seu idioma.",
       icon: <LanguagesIcon className="size-5 stroke-1" />,
     },
     {
-      title: "CMS friendly",
-      description:
-        "Built to work with your any headless content management system",
-      icon: <SquarePenIcon className="size-5 stroke-1" />,
+      title: "Confirmações Inteligentes",
+      description: "Confirmação automática de recebimento e leitura.",
+      icon: <CheckCircle2Icon className="size-5 stroke-1" />,
+    },
+    {
+      title: "Dados 100% Seguros (LGPD)",
+      description: "Total conformidade com a LGPD para proteger seus dados.",
+      icon: <UserCheckIcon className="size-5 stroke-1" />,
     },
   ],
   className,

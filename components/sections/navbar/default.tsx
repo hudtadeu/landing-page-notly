@@ -45,11 +45,11 @@ export default function Navbar({
   name = "Notly",
   homeUrl = siteConfig.url,
   mobileLinks = [
-    { text: "Início", href: siteConfig.url },
-    { text: "Empresas", href: siteConfig.url + "/empresas" },
-    { text: "Funcionalidades", href: siteConfig.url + "/funcionalidades" },
-    { text: "Perguntas", href: siteConfig.url + "/perguntas" },
-    { text: "Contato", href: siteConfig.url + "/contato" },
+    { text: "Início", href: "#inicio" },
+    { text: "Empresas", href: "#empresas" },
+    { text: "Funcionalidades", href: "#funcionalidades" },
+    { text: "Perguntas", href: "#perguntas" },
+    { text: "Contato", href: "#footer" },
   ],
   actions = [
     { text: "Entrar", href: siteConfig.url, isButton: false },
@@ -64,6 +64,20 @@ export default function Navbar({
   customNavigation,
   className,
 }: NavbarProps) {
+  // Função para scroll suave
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.getElementById(href.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
       <div className="fade-bottom bg-background/15 absolute left-0 h-24 w-full backdrop-blur-lg"></div>
@@ -123,6 +137,7 @@ export default function Navbar({
                   <a
                     href={homeUrl}
                     className="flex items-center gap-2 text-xl font-bold"
+                    // Se desejar scroll suave para o topo, pode adicionar onClick aqui também
                   >
                     <span>{name}</span>
                   </a>
@@ -131,6 +146,7 @@ export default function Navbar({
                       key={index}
                       href={link.href}
                       className="text-muted-foreground hover:text-foreground"
+                      onClick={(e) => handleSmoothScroll(e, link.href)}
                     >
                       {link.text}
                     </a>

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 import { PricingColumn, PricingColumnProps } from "../../ui/pricing-column";
 import { Section } from "../../ui/section";
+import { Badge } from "../../ui/badge"; // import Badge
 
 interface PricingProps {
   title?: string | false;
@@ -14,61 +15,75 @@ interface PricingProps {
 }
 
 export default function Pricing({
-  title = "Build your dream landing page, today.",
-  description = "Get lifetime access to all the components. No recurring fees. Just simple, transparent pricing.",
+  title = "Escolha o plano ideal para sua clínica.",
+  description = "Planos flexíveis para todos os tamanhos de operação. Comece gratuitamente e evolua conforme sua necessidade.",
   plans = [
     {
-      name: "Free",
-      description: "For everyone starting out on a website for their big idea",
-      price: 0,
-      priceNote: "Free and open-source forever.",
+      name: "Básico",
+      description: "Perfeito para começar",
+      price: 99,
+      priceNote: "R$ 99/mês",
       cta: {
         variant: "glow",
-        label: "Get started for free",
+        label: "Comece agora gratuitamente",
         href: "/docs/getting-started/introduction",
       },
       features: [
-        "1 website template",
-        "9 blocks and sections",
-        "4 custom animations",
+        "200 mensagens WhatsApp/mês incluídas",
+        "Até 100 pacientes",
+        "Confirmações e lembretes automáticos",
+        "Agenda inteligente",
+        "Dashboard com métricas",
+        "Suporte por email",
       ],
       variant: "default",
-      className: "hidden lg:flex",
+      className: "",
     },
     {
-      name: "Pro",
+      name: "Profissional",
       icon: <User className="size-4" />,
-      description: "For early-stage founders, solopreneurs and indie devs",
-      price: 149,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      description: "Mais popular para clínicas",
+      price: 199,
+      priceNote: "R$ 199/mês",
       cta: {
         variant: "default",
-        label: "Get all-access",
-        href: siteConfig.pricing.pro,
+        label: "Assinar Agora",
+        href: "", // Atualize para a URL desejada
       },
       features: [
-        `${siteConfig.stats.templates} templates`,
-        `${siteConfig.stats.sections} blocks and sections`,
-        `${siteConfig.stats.illustrations} illustrations`,
-        `${siteConfig.stats.animations} custom animations`,
+        "500 mensagens WhatsApp/mês incluídas",
+        "Pacientes ilimitados",
+        "Tudo do Básico +",
+        "Analytics avançado",
+        "Previsão de no-show",
+        "Relatórios personalizados",
+        "Suporte prioritário",
       ],
       variant: "glow-brand",
+      className: "border-2 border-primary shadow-lg relative before:content-['Mais_Popular'] before:absolute before:-top-6 before:left-1/2 before:-translate-x-1/2 before:bg-primary before:text-white before:px-3 before:py-1 before:rounded-full before:text-xs before:font-semibold",
     },
     {
-      name: "Pro Team",
+      name: "Premium",
       icon: <Users className="size-4" />,
-      description: "For teams and agencies working on cool products together",
-      price: 749,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      description: "Para grandes operações",
+      price: 299,
+      priceNote: "R$ 299/mês",
       cta: {
         variant: "default",
-        label: "Get all-access for your team",
-        href: siteConfig.pricing.team,
+        label: "Assinar Agora",
+        href: "", // Atualize para a URL desejada
       },
       features: [
-        "All the templates, components and sections available for your entire team",
+        "1500 mensagens WhatsApp/mês incluídas",
+        "Tudo do Profissional +",
+        "Contas multi-usuário",
+        "Integração Google Calendar",
+        "API personalizada",
+        "Página de agendamento pública",
+        "Suporte dedicado 24/7",
       ],
       variant: "glow",
+      className: "",
     },
   ],
   className = "",
@@ -78,6 +93,10 @@ export default function Pricing({
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-12">
         {(title || description) && (
           <div className="flex flex-col items-center gap-4 px-4 text-center sm:gap-8">
+            {/* Badge acima do título */}
+            <Badge>
+              escolha seu plano
+            </Badge>
             {title && (
               <h2 className="text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
                 {title}

@@ -3,7 +3,6 @@ import { siteConfig } from "@/config/site";
 import { Section } from "../../ui/section";
 
 interface StatItemProps {
-  label?: string;
   value: string | number;
   suffix?: string;
   description?: string;
@@ -17,26 +16,24 @@ interface StatsProps {
 export default function Stats({
   items = [
     {
-      label: "used by",
-      value: Math.round(siteConfig.stats.figma / 100) / 10,
-      suffix: "k",
-      description: "designers on Figma Community",
+      value: "2.500",
+      suffix: "+",
+      description: "Profissionais ativos",
     },
     {
-      label: "over",
-      value: siteConfig.stats.github,
-      description: "clones and forks of the template on Github",
+      value: "850",
+      suffix: "K+",
+      description: "Mensagens enviadas",
     },
     {
-      label: "already",
-      value: Math.round(siteConfig.stats.cli / 100) / 10,
-      suffix: "k",
-      description: "installations with shadcn/ui CLI",
+      value: "92",
+      suffix: "%",
+      description: "Taxa de confirmação",
     },
     {
-      label: "includes",
-      value: siteConfig.stats.sections,
-      description: "blocks and sections",
+      value: "82",
+      suffix: "%",
+      description: "Redução de faltas",
     },
   ],
   className,
@@ -44,6 +41,14 @@ export default function Stats({
   return (
     <Section className={className}>
       <div className="container mx-auto max-w-[960px]">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold sm:text-3xl md:text-3xl">
+            Mais de 2.500 profissionais confiam no Notly
+          </h2>
+          <p className="mt-2 text-lg text-muted-foreground">
+            Resultados mensuráveis todos os dias
+          </p>
+        </div>
         {items !== false && items.length > 0 && (
           <div className="grid grid-cols-2 gap-12 sm:grid-cols-4">
             {items.map((item, index) => (
@@ -51,11 +56,6 @@ export default function Stats({
                 key={index}
                 className="flex flex-col items-start gap-3 text-left"
               >
-                {item.label && (
-                  <div className="text-muted-foreground text-sm font-semibold">
-                    {item.label}
-                  </div>
-                )}
                 <div className="flex items-baseline gap-2">
                   <div className="from-foreground to-foreground dark:to-brand bg-linear-to-r bg-clip-text text-4xl font-medium text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)] transition-all duration-300 sm:text-5xl md:text-6xl">
                     {item.value}
@@ -75,6 +75,9 @@ export default function Stats({
             ))}
           </div>
         )}
+        <div className="mt-8 text-center text-base font-semibold text-muted-foreground">
+          Mais de R$ 12 milhões em receita recuperada pelos nossos clientes
+        </div>
       </div>
     </Section>
   );

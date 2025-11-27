@@ -9,7 +9,6 @@ import {
   FooterColumn,
   FooterContent,
 } from "../../ui/footer";
-import { ModeToggle } from "../../ui/mode-toggle";
 import NotlyIcon from "@/components/logos/notly";
 
 interface FooterLink {
@@ -37,35 +36,45 @@ export default function FooterSection({
   name = "Notly",
   columns = [
     {
-      title: "Product",
+      title: "Produto",
       links: [
-        { text: "Changelog", href: siteConfig.url },
-        { text: "Documentation", href: siteConfig.url },
+        { text: "Funcionalidades", href: siteConfig.url + "/funcionalidades" },
+        { text: "Preços", href: siteConfig.url + "/precos" },
+        { text: "Depoimentos", href: siteConfig.url + "/depoimentos" },
+        { text: "Idiomas Suportados", href: siteConfig.url + "/idiomas" },
       ],
     },
     {
-      title: "Company",
+      title: "Soluções",
       links: [
-        { text: "About", href: siteConfig.url },
-        { text: "Careers", href: siteConfig.url },
-        { text: "Blog", href: siteConfig.url },
+        { text: "Criadores de Conteúdo", href: siteConfig.url + "/criadores" },
+        { text: "Empresas", href: siteConfig.url + "/empresas" },
+        { text: "Educação", href: siteConfig.url + "/educacao" },
+        { text: "Corporativo", href: siteConfig.url + "/corporativo" },
       ],
     },
     {
-      title: "Contact",
+      title: "Recursos",
       links: [
-        { text: "Discord", href: siteConfig.url },
-        { text: "Twitter", href: siteConfig.url },
-        { text: "Github", href: siteConfig.links.github },
+        { text: "Blog", href: siteConfig.url + "/blog" },
+        { text: "Guias de Tradução", href: siteConfig.url + "/guias" },
+        { text: "Suporte", href: siteConfig.url + "/suporte" },
+      ],
+    },
+    {
+      title: "Empresa",
+      links: [
+        { text: "Sobre Nós", href: siteConfig.url + "/sobre" },
+        { text: "Política de Privacidade", href: siteConfig.url + "/privacidade" },
+        { text: "Termos & Condições", href: siteConfig.url + "/termos" },
       ],
     },
   ],
-  copyright = "© 2025 Mikołaj Dobrucki. All rights reserved",
+  copyright = "© 2025 MAAX Soluções. All rights reserved",
   policies = [
-    { text: "Privacy Policy", href: siteConfig.url },
-    { text: "Terms of Service", href: siteConfig.url },
+    { text: "Política de Privacidade", href: siteConfig.url + "/privacidade" },
+    { text: "Termos & Condições", href: siteConfig.url + "/termos" },
   ],
-  showModeToggle = true,
   className,
 }: FooterProps) {
   return (
@@ -102,7 +111,6 @@ export default function FooterSection({
                   {policy.text}
                 </a>
               ))}
-              {showModeToggle && <ModeToggle />}
             </div>
           </FooterBottom>
         </Footer>

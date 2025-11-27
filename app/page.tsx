@@ -1,3 +1,4 @@
+import Reviews from "@/components/sections/reviews/reviews";
 import CTA from "../components/sections/cta/default";
 import FAQ from "../components/sections/faq/default";
 import Footer from "../components/sections/footer/default";
@@ -14,14 +15,33 @@ export default function Home() {
     <main className="bg-background text-foreground min-h-screen w-full">
       <LayoutLines />
       <Navbar />
-      <Hero />
-      <Logos />
-      <Items />
-      <Stats />
-      <Pricing />
-      <FAQ />
-      <CTA />
-      <Footer />
+      <section id="inicio">
+        <Hero />
+      </section>
+      <section id="empresas">
+        <Logos />
+      </section>
+      <section id="funcionalidades">
+        <Items />
+      </section>
+      <section id="stats">
+        <Stats />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
+      <section id="reviews">
+        <Reviews />
+      </section>
+      <section id="perguntas">
+        <FAQ />
+      </section>
+      <section id="cta">
+        <CTA />
+      </section>
+      <section id="footer">
+        <Footer />
+      </section>
     </main>
   );
 }
