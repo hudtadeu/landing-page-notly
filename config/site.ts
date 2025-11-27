@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Launch UI",
+  name: "Notly",
   url: "https://launchuicomponents.com",
   getStartedUrl:
     "https://launchuicomponents.com/docs/getting-started/introduction",

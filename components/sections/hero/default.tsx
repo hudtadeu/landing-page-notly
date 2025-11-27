@@ -22,7 +22,7 @@ interface HeroButtonProps {
 }
 
 interface HeroProps {
-  title?: string;
+  title?: ReactNode;
   description?: string;
   mockup?: ReactNode | false;
   badge?: ReactNode | false;
@@ -31,40 +31,46 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Give your big idea the design it deserves",
-  description = "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+  title = (
+    <>
+      Cada falta custa{" "}
+      <span style={{ color: "var(--brand)" }}>R$ 300 em média</span>
+    </>
+  ),
+  description = "WhatsApp automático para reduzir faltas em consultas médicas e aumentar a retenção de pacientes",
   mockup = (
     <Screenshot
-      srcLight="/dashboard-light.png"
-      srcDark="/dashboard-dark.png"
-      alt="Launch UI app screenshot"
+      srcLight="/dashboard-notly.png"
+      srcDark="/dashboard-notly.png"
+      alt="Notly App Dashboard"
       width={1248}
       height={765}
       className="w-full"
     />
   ),
   badge = (
-    <Badge variant="outline" className="animate-appear">
-      <span className="text-muted-foreground">
-        New version of Launch UI is out!
+    <div
+      className="animate-appear inline-flex items-center gap-3 rounded-full bg-muted/60 px-5 py-2 shadow-md border border-border backdrop-blur-md whitespace-nowrap max-w-full overflow-x-auto"
+      style={{ maxWidth: 520 }}
+    >
+      <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground whitespace-nowrap">
+        <ArrowRightIcon className="size-4 text-brand" />
+        Teste grátis por 14 dias
+        <span className="hidden sm:inline text-xs text-muted-foreground/70 ml-1 whitespace-nowrap">Sem cartão de crédito</span>
       </span>
-      <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
-        Get started
-        <ArrowRightIcon className="size-3" />
+      <a
+        href={siteConfig.getStartedUrl}
+        className="ml-3 rounded-full bg-brand px-4 py-1.5 text-xs font-semibold text-white shadow transition hover:bg-brand-foreground whitespace-nowrap"
+      >
+        Cadastrar-se
       </a>
-    </Badge>
+    </div>
   ),
   buttons = [
     {
       href: siteConfig.getStartedUrl,
-      text: "Get Started",
+      text: "Começar Teste Gratuito",
       variant: "default",
-    },
-    {
-      href: siteConfig.links.github,
-      text: "Github",
-      variant: "glow",
-      icon: <Github className="mr-2 size-4" />,
     },
   ],
   className,

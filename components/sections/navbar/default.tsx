@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -14,6 +13,7 @@ import {
 } from "../../ui/navbar";
 import Navigation from "../../ui/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
+import NotlyIcon from "@/components/logos/notly";
 
 interface NavbarLink {
   text: string;
@@ -41,18 +41,20 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <NotlyIcon />,
+  name = "Notly",
   homeUrl = siteConfig.url,
   mobileLinks = [
-    { text: "Getting Started", href: siteConfig.url },
-    { text: "Components", href: siteConfig.url },
-    { text: "Documentation", href: siteConfig.url },
+    { text: "Início", href: siteConfig.url },
+    { text: "Empresas", href: siteConfig.url + "/empresas" },
+    { text: "Funcionalidades", href: siteConfig.url + "/funcionalidades" },
+    { text: "Perguntas", href: siteConfig.url + "/perguntas" },
+    { text: "Contato", href: siteConfig.url + "/contato" },
   ],
   actions = [
-    { text: "Sign in", href: siteConfig.url, isButton: false },
+    { text: "Entrar", href: siteConfig.url, isButton: false },
     {
-      text: "Get Started",
+      text: "Cadastrar-se",
       href: siteConfig.url,
       isButton: true,
       variant: "default",
@@ -75,8 +77,12 @@ export default function Navbar({
               {logo}
               {name}
             </a>
-            {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
+          {showNavigation && (
+            <div className="flex-1 flex justify-center">
+              {customNavigation || <Navigation />}
+            </div>
+          )}
           <NavbarRight>
             {actions.map((action, index) =>
               action.isButton ? (
@@ -109,7 +115,7 @@ export default function Navbar({
                   className="shrink-0 md:hidden"
                 >
                   <Menu className="size-5" />
-                  <span className="sr-only">Toggle navigation menu</span>
+                  <span className="sr-only">Alternar menu de navegação</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">

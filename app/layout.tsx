@@ -25,14 +25,14 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Mikolaj Dobrucki",
-      url: "https://mikolajdobrucki.com",
+      name: "Hudson Tadeu",
+      url: "https://hudontadeu.com",
     },
   ],
-  creator: "mikolajdobrucki",
+  creator: "hudsontadeu",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "pt_BR ",
     url: siteConfig.getStartedUrl,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -65,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ colorScheme: "dark" }} className="dark">
+    <html lang="pt-BR" style={{ colorScheme: "root" }} className="root">
       <body className={`${inter.className} bg-background antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>

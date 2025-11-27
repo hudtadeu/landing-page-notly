@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
 import {
   Footer,
   FooterBottom,
@@ -11,6 +10,7 @@ import {
   FooterContent,
 } from "../../ui/footer";
 import { ModeToggle } from "../../ui/mode-toggle";
+import NotlyIcon from "@/components/logos/notly";
 
 interface FooterLink {
   text: string;
@@ -33,8 +33,8 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <NotlyIcon />,
+  name = "Notly",
   columns = [
     {
       title: "Product",
