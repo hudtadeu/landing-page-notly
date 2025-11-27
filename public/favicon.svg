@@ -1,9 +1,18 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V28C32 30.2091 30.2091 32 28 32H4C1.79086 32 0 30.2091 0 28V4Z"
-    fill="#09090B" />
-  <path d="M14 17H4L8 13H12L21 4H27L14 17Z" fill="#D9D9D9" />
-  <path d="M15 20V18L28 5V7L15 20Z" fill="#D9D9D9" />
-  <path d="M15 24V22L28 9V11L15 24Z" fill="#D9D9D9" />
-  <path d="M15 28V26L20 21V23L15 28Z" fill="#D9D9D9" />
+<svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect x="3" y="4" width="18" height="17" rx="4" stroke="currentColor" stroke-width="1.8" fill="none"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" fill="currentColor" opacity="0.08"/>
+  <rect x="7" y="1.5" width="2" height="5" rx="1" fill="currentColor"/>
+  <rect x="15" y="1.5" width="2" height="5" rx="1" fill="currentColor"/>
+  <circle cx="7.5" cy="11" r="1.1" fill="currentColor"/>
+  <circle cx="12" cy="11" r="1.1" fill="currentColor"/>
+  <circle cx="16.5" cy="11" r="1.1" fill="currentColor"/>
+  <circle cx="7.5" cy="15" r="1.1" fill="currentColor"/>
+  <circle cx="12" cy="15" r="1.1" fill="currentColor"/>
+  <circle cx="16.5" cy="15" r="1.1" fill="currentColor"/>
 </svg>

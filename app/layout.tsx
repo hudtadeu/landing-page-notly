@@ -33,14 +33,8 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    creator: "@mikolajdobrucki",
-  },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.svg", // Certifique-se de exportar o SVG do NotlyIcon para /public/favicon.svg
   },
 };
 
